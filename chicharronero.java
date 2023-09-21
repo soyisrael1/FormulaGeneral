@@ -46,6 +46,7 @@ public class chicharronero {
         frmLaChicarronera.setTitle("LA CHICHARRONERA :)");
         frmLaChicarronera.setBounds(100, 100, 577, 327);
         frmLaChicarronera.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frmLaChicarronera.setLocationRelativeTo(null);
         frmLaChicarronera.getContentPane().setLayout(null);
 
        
