@@ -10,6 +10,9 @@ import javax.swing.border.LineBorder;
 import java.awt.Color;
 import java.awt.Toolkit;
 import javax.swing.ImageIcon;
+import java.text.DecimalFormat;
+
+
 
 public class chicharronero {
 
@@ -86,28 +89,30 @@ public class chicharronero {
         btnCalcular.setBounds(21, 118, 128, 33);
         frmLaChicarronera.getContentPane().add(btnCalcular);
         btnCalcular.addActionListener(e -> {
-            double a = Double.parseDouble(txtA.getText());
-            double b = Double.parseDouble(txtB.getText());
-            double c = Double.parseDouble(txtC.getText());
+        	 double a = Double.parseDouble(txtA.getText());
+             double b = Double.parseDouble(txtB.getText());
+             double c = Double.parseDouble(txtC.getText());
 
-            double discriminante = b * b - 4 * a * c;
+             double discriminante =( b * b) - (4 * a * c);
 
-            if (discriminante > 0) {
-                double x1 = (-b + Math.sqrt(discriminante)) / (2 * a);
-                double x2 = (-b - Math.sqrt(discriminante)) / (2 * a);
+             if (discriminante > 0) {
+                 double x1 = (-b + Math.sqrt(discriminante)) / (2 * a);
+                 double x2 = (-b - Math.sqrt(discriminante)) / (2 * a);
 
-                lblX1.setText("x1: " + x1);
-                lblX2.setText("x2: " + x2);
-            } else if (discriminante == 0) {
-                double x = -b / (2 * a);
+                 DecimalFormat decimalFormat = new DecimalFormat("#.00");
+                 lblX1.setText("x1: " + decimalFormat.format(x1));
+                 lblX2.setText("x2: " + decimalFormat.format(x2));
+             } else if (discriminante == 0) {
+                 double x = -b / (2 * a);
 
-                lblX1.setText("x1 = x2: " + x);
-                lblX2.setText("");
-            } else {
-                lblX1.setText("Esta ecuacion no tiene solucion");
-                lblX2.setText("");
-            }
-        });
+                 DecimalFormat decimalFormat = new DecimalFormat("#.00");
+                 lblX1.setText("x1 = x2: " + decimalFormat.format(x));
+                 lblX2.setText("");
+             } else {
+                 lblX1.setText("Esta ecuacion no tiene solucion");
+                 lblX2.setText("");
+             }
+         });
 
       
         JButton btnBorrar = new JButton("BORRAR");
